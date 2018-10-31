@@ -13,6 +13,7 @@ object SimpleKdcServer {
 
   var kerbyServer: Option[SimpleKdcServer] = _
 
+  @throws(classOf[Exception])
   def main(args: Array[String]): Unit = {
     val config: Config = ConfigFactory.load
     val kdcHost = config.getString("kdc-server.host")
@@ -20,7 +21,7 @@ object SimpleKdcServer {
     val kdcRealm = config.getString("kdc-server.realm")
     if (kdcRealm.isEmpty) throw new RuntimeException("KDC Realm required")
     val kdcTcpPort = config.getInt("kdc-server.port")
-    if (kdcTcpPort < 1024) throw new RuntimeException("KDC Port required")
+    if (!((1024 to 9999) contains kdcTcpPort)) throw new RuntimeException("KDC Port required")
     val workDir = config.getString("kdc-server.work-dir")
     if (workDir.isEmpty) throw new RuntimeException("KDC Work dir required")
     val principals = config.getStringList("kdc-server.principals").toList

@@ -13,4 +13,4 @@ Run using the following command
 	
 Test with the following command:
     
-    kinit -V -k -t /work/client.keytab client@github.com
+    kinit -V -k -t work/client.keytab client@github.com
