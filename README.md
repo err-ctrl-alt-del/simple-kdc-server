@@ -9,7 +9,7 @@ Running the jar:
 ---
 Run using the following command
  
-	java -Xms16m -Xmx32m -jar simple-kdc-server-jar-with-dependencies.jar -Dconfig.file=./config/application.conf
+	java -jar simple-kdc-server-jar-with-dependencies.jar -Dconfig.file=./config/application.conf
 	
 Test with the following command:
     
